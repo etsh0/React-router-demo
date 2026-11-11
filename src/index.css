@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+/* ── Custom variant: teaching mode ─────────────────────── */
+/* Google Fonts are loaded via <link> in index.html to avoid @import ordering issues */
+/* When data-teach="on" is on the root, all teach: classes activate */
+@custom-variant teach (&:where([data-teach=on], [data-teach=on] *));
+
+/* ── Theme tokens ────────────────────────────────────────── */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Layout accent colors */
+  --color-root-accent: #3b82f6;      /* blue-500   */
+  --color-dash-accent: #10b981;      /* emerald-500 */
+  --color-prod-accent: #f97316;      /* orange-500  */
+  --color-users-accent: #ec4899;     /* pink-500    */
+  --color-user-accent: #14b8a6;      /* teal-500    */
+  --color-auth-accent: #8b5cf6;      /* violet-500  */
+}
+
+/* ── Base styles ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #f8fafc;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Teaching: outlet label ──────────────────────────────── */
+.outlet-wrapper {
+  position: relative;
+}
+
+.outlet-label {
+  display: none;
+  position: absolute;
+  top: -11px;
+  left: 12px;
+  background: #fff;
+  padding: 0 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: #64748b;
+  z-index: 10;
+  pointer-events: none;
+  line-height: 1;
+}
